@@ -8,7 +8,8 @@
     "order": 1,
     "providers": [
         "Modules\\Blog\\Providers\\BlogServiceProvider",
-        "Modules\\Blog\\Providers\\RouteServiceProvider"
+        "Modules\\Blog\\Providers\\RouteServiceProvider",
+        "Modules\\Blog\\Providers\\EventServiceProvider"
     ],
     "widgets": [
         "Modules\\Blog\\Widgets\\PostsWidget",
