@@ -9,10 +9,11 @@
        {!! Form::text("{$lang}[slug]", old("$lang.slug"), ['class' => 'form-control slug', 'data-slug' => 'target', 'placeholder' => trans('blog::post.form.slug')]) !!}
        {!! $errors->first("$lang.slug", '<span class="help-block">:message</span>') !!}
     </div>
-
-    <textarea class="ckeditor" name="{{$lang}}[content]" rows="10" cols="80">
-        {!! old("{$lang}.content") !!}
-    </textarea>
+    <div class='form-group{{ $errors->has("$lang.content") ? ' has-error' : '' }}'>
+        {!! Form::label("{$lang}[content]", trans('blog::post.form.content')) !!}
+        {!! Form::textarea("{$lang}[content]", old("$lang.content"), ['class' => 'form-control ckeditor']) !!}
+        {!! $errors->first("$lang.content", '<span class="help-block">:message</span>') !!}
+    </div>
 
     <?php if (config('asgard.blog.config.post.partials.translatable.create') !== []): ?>
         <?php foreach (config('asgard.blog.config.post.partials.translatable.create') as $partial): ?>

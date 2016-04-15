@@ -11,6 +11,8 @@ return [
     'slug is required' => 'Slug is required',
     'slug is unique' => 'This slug is already taken',
 
+    'content is required' => 'The Content is required',
+
     /* Category management */
     'category created' => 'Category successfully created.',
     'category not found' => 'Category not found.',

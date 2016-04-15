@@ -17,6 +17,7 @@ return [
     'form' => [
         'title' => 'Title',
         'slug' => 'Slug',
+        'content' => 'Content',
     ],
     'navigation' => [
         'back to index' => 'Back to posts index'

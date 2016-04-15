@@ -14,8 +14,9 @@ class UpdatePostRequest extends BaseFormRequest
         $id = $this->route()->getParameter('post')->id;
 
         return [
-            "title" => "required",
-            "slug" => "required|unique:blog__post_translations,slug,$id,post_id,locale,$this->localeKey",
+            'title' => 'required',
+            'slug' => "required|unique:blog__post_translations,slug,$id,post_id,locale,$this->localeKey",
+            'content' => 'required',
         ];
     }
 
@@ -30,6 +31,7 @@ class UpdatePostRequest extends BaseFormRequest
             'title.required' => trans('blog::messages.title is required'),
             'slug.required' => trans('blog::messages.slug is required'),
             'slug.unique' => trans('blog::messages.slug is unique'),
+            'content.required' => trans('blog::messages.content is required'),
         ];
     }
 }
