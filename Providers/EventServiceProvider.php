@@ -3,7 +3,7 @@
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Modules\Blog\Events\Handlers\CreateTagAllLocale;
 use Modules\Blog\Events\PostWasCreated;
-use Modules\Blog\Events\UserWasUpdated;
+use Modules\Blog\Events\PostWasUpdated;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -11,7 +11,7 @@ class EventServiceProvider extends ServiceProvider
         PostWasCreated::class => [
             CreateTagAllLocale::class,
         ],
-        UserWasUpdated::class => [
+        PostWasUpdated::class => [
             CreateTagAllLocale::class,
         ],
     ];
