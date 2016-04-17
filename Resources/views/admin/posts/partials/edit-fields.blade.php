@@ -17,13 +17,6 @@
         {!! Form::textarea("{$lang}[content]", old("$lang.content", $oldContent), ['class' => 'form-control ckeditor']) !!}
         {!! $errors->first("$lang.content", '<span class="help-block">:message</span>') !!}
     </div>
-    <div class='form-group'>
-        @include('media::admin.fields.file-link-multiple', [
-            'entityClass' => 'Modules\\\\Blog\\\\Entities\\\\Post',
-            'entityId' => $post->id,
-            'zone' => 'gallery'
-        ])
-    </div>
 
     <?php if (config('asgard.blog.config.post.partials.translatable.edit') !== []): ?>
         <?php foreach (config('asgard.blog.config.post.partials.translatable.edit') as $partial): ?>

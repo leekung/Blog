@@ -36,6 +36,16 @@
                         @include($partial)
                     <?php endforeach; ?>
                 <?php endif; ?>
+                <div class="box-body">
+                    <div class='form-group'>
+                        @include('media::admin.fields.file-link-multiple', [
+                            'entityClass' => 'Modules\\\\Blog\\\\Entities\\\\Post',
+                            'entityId' => $post->id,
+                            'zone' => 'gallery'
+                        ])
+                    </div>
+                </div>
+
                 <div class="box-footer">
                     <input type="submit" name="submit" class="btn btn-primary btn-flat" value="{{ trans('core::core.button.update') }}" />
                     <input type="submit" name="submit" class="btn btn-success btn-flat" value="{{ trans('core.button.update and continue edit') }}" />
