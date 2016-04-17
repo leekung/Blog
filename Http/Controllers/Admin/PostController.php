@@ -79,7 +79,7 @@ class PostController extends AdminBaseController
 
         flash(trans('blog::messages.post created'));
         $submit = $request->get('submit');
-        if ($submit == trans('core::core.button.create and continue edit')) {
+        if ($submit == trans('core.button.create and continue edit')) {
             return redirect()->route('admin.blog.post.edit', [$this->post->id]);
         }
 
@@ -117,7 +117,7 @@ class PostController extends AdminBaseController
         flash(trans('blog::messages.post updated'));
 
         $submit = $request->get('submit');
-        if ($submit == trans('core::core.button.update and continue edit')) {
+        if ($submit == trans('core.button.update and continue edit')) {
             return redirect()->route('admin.blog.post.edit', [$post->id]);
         }
 
