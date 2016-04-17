@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 use Laracasts\Presenter\PresentableTrait;
 use Modules\Blog\Presenters\PostPresenter;
 use Modules\Media\Support\Traits\MediaRelation;
+use Phoenix\EloquentMeta\MetaTrait;
 
 class Post extends Model
 {
-    use Translatable, MediaRelation, PresentableTrait;
+    use Translatable, MediaRelation, PresentableTrait, MetaTrait;
 
     public $translatedAttributes = ['title', 'slug', 'content'];
     protected $fillable = ['category_id', 'status', 'title', 'slug', 'content'];

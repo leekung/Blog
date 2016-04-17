@@ -30,4 +30,32 @@
         @include($partial)
         <?php endforeach; ?>
     <?php endif; ?>
+
+    <div class="box-group" id="accordion-{{$lang}}">
+        @foreach (config('meta.available_metas') as $meta_group_name => $meta_group)
+            <div class="panel box box-primary">
+                <div class="box-header with-border">
+                    <h4 class="box-title">
+                        <a class="collapsed" data-toggle="collapse" href="#collapsePanel-{{ $meta_group_name }}-{{ $lang }}">
+                            <i class="fa fa-{{ $meta_group_name }}" aria-hidden="true"></i>
+                            {{ ucwords($meta_group_name) }} {{ trans('page::pages.form.meta_data') }}
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapsePanel-{{ $meta_group_name }}-{{ $lang }}" class="panel-collapse collapse">
+                    <div class="box-body">
+                        @foreach($meta_group as $key => $val)
+                            @if ($val['edit'] != false)
+                                <div class='form-group{{ $errors->has("{$lang}[metable][{$meta_group_name}][{$key}]") ? ' has-error' : '' }}'>
+                                    {!! Form::label("{$lang}[metable][{$meta_group_name}][{$key}]", $key) !!}
+                                    {!! Form::text("{$lang}[metable][{$meta_group_name}][{$key}]", old("{$lang}.metable.{$meta_group_name}.{$key}", $post->meta->where('locale', $lang)->where('key', $key)->first()->value), ['class' => "form-control", 'maxlength' => $val['maxlength']]) !!}
+                                    {!! $errors->first("{$lang}[metable][{$meta_group_name}][{$key}]", '<span class="help-block">:message</span>') !!}
+                                </div>
+                            @endif
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
 </div>

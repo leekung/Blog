@@ -15,7 +15,7 @@ class CreateTagAllLocale
     {
         $localize = new LaravelLocalization;
         $locales = $localize->getSupportedLocales();
-        $current_tags = $event->data['tags'];
+        $current_tags = isset($event->data['tags']) ? $event->data['tags'] : [];
         $tag_translation = new TagTranslation();
 
         if (!empty($current_tags)) {

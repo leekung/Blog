@@ -4,6 +4,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Modules\Blog\Entities\Post;
 use Modules\Blog\Entities\Status;
 use Modules\Blog\Events\PostWasCreated;
+use Modules\Blog\Events\PostWasDeleted;
 use Modules\Blog\Events\PostWasUpdated;
 use Modules\Blog\Repositories\Collection;
 use Modules\Blog\Repositories\PostRepository;
@@ -59,6 +60,21 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
         event(new PostWasCreated($post->id, $data));
 
         return $post;
+    }
+
+    /**
+     * Create a news news
+     * @param  array $data
+     * @return News
+     */
+    public function destroy($data)
+    {
+        $destroy = $this->model->destroy($data->id);
+        if ($destroy) {
+            event(new PostWasDeleted($data->id));
+        }
+
+        return $destroy;
     }
 
     /**
