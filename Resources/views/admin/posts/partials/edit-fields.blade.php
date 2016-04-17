@@ -44,11 +44,14 @@
                 </div>
                 <div id="collapsePanel-{{ $meta_group_name }}-{{ $lang }}" class="panel-collapse collapse">
                     <div class="box-body">
+                        <?php
+                        $meta = $post->setLocale($lang)->getAllMeta();
+                        ?>
                         @foreach($meta_group as $key => $val)
                             @if ($val['edit'] != false)
                                 <div class='form-group{{ $errors->has("{$lang}[metable][{$meta_group_name}][{$key}]") ? ' has-error' : '' }}'>
                                     {!! Form::label("{$lang}[metable][{$meta_group_name}][{$key}]", $key) !!}
-                                    {!! Form::text("{$lang}[metable][{$meta_group_name}][{$key}]", old("{$lang}.metable.{$meta_group_name}.{$key}", $post->getMeta($key)), ['class' => "form-control", 'maxlength' => $val['maxlength']]) !!}
+                                    {!! Form::text("{$lang}[metable][{$meta_group_name}][{$key}]", old("{$lang}.metable.{$meta_group_name}.{$key}", $meta->get($key)), ['class' => "form-control", 'maxlength' => $val['maxlength']]) !!}
                                     {!! $errors->first("{$lang}[metable][{$meta_group_name}][{$key}]", '<span class="help-block">:message</span>') !!}
                                 </div>
                             @endif
