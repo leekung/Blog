@@ -48,7 +48,7 @@
                             @if ($val['edit'] != false)
                                 <div class='form-group{{ $errors->has("{$lang}[metable][{$meta_group_name}][{$key}]") ? ' has-error' : '' }}'>
                                     {!! Form::label("{$lang}[metable][{$meta_group_name}][{$key}]", $key) !!}
-                                    {!! Form::text("{$lang}[metable][{$meta_group_name}][{$key}]", old("{$lang}.metable.{$meta_group_name}.{$key}", $post->meta->where('locale', $lang)->where('key', $key)->first()->value), ['class' => "form-control", 'maxlength' => $val['maxlength']]) !!}
+                                    {!! Form::text("{$lang}[metable][{$meta_group_name}][{$key}]", old("{$lang}.metable.{$meta_group_name}.{$key}", $post->getMeta($key)), ['class' => "form-control", 'maxlength' => $val['maxlength']]) !!}
                                     {!! $errors->first("{$lang}[metable][{$meta_group_name}][{$key}]", '<span class="help-block">:message</span>') !!}
                                 </div>
                             @endif
