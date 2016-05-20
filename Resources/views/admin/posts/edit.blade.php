@@ -41,6 +41,7 @@
                         @include('media::admin.fields.file-link-multiple', [
                             'entityClass' => 'Modules\\\\Blog\\\\Entities\\\\Post',
                             'entityId' => $post->id,
+                            'accept' => '.(jpe?g|png|gif)$',
                             'zone' => 'gallery'
                         ])
                     </div>
@@ -91,6 +92,7 @@
                 @include('media::admin.fields.file-link', [
                     'entityClass' => 'Modules\\\\Blog\\\\Entities\\\\Post',
                     'entityId' => $post->id,
+                    'accept' => '.(jpe?g|png|gif)$',
                     'zone' => 'thumbnail'
                 ])
             </div>

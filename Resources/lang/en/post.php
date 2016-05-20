@@ -16,6 +16,7 @@ return [
     ],
     'form' => [
         'title' => 'Title',
+        'sub_title' => 'Sub Title',
         'slug' => 'Slug',
         'content' => 'Content',
     ],

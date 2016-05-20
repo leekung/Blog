@@ -18,4 +18,6 @@ return [
     'category not found' => 'Category not found.',
     'category updated' => 'Category successfully updated.',
     'category deleted' => 'Category successfully deleted.',
+
+    'Invalid file type' => 'Invalid file type.',
 ];

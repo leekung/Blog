@@ -5,6 +5,12 @@
         {!! Form::text("{$lang}[title]", old("$lang.title", $oldTitle), ['class' => 'form-control', 'data-slug' => 'source', 'placeholder' => trans('blog::post.form.title')]) !!}
         {!! $errors->first("$lang.title", '<span class="help-block">:message</span>') !!}
     </div>
+    <div class='form-group{{ $errors->has("$lang.sub_title") ? ' has-error' : '' }}'>
+        <?php $oldTitle = isset($post->translate($lang)->sub_title) ? $post->translate($lang)->sub_title : ''; ?>
+        {!! Form::label("{$lang}[sub_title]", trans('blog::post.form.sub_title')) !!}
+        {!! Form::text("{$lang}[sub_title]", old("$lang.sub_title", $oldTitle), ['class' => 'form-control', 'placeholder' => trans('blog::post.form.sub_title')]) !!}
+        {!! $errors->first("$lang.sub_title", '<span class="help-block">:message</span>') !!}
+    </div>
     <div class='form-group{{ $errors->has("$lang.slug") ? ' has-error' : '' }}'>
         <?php $oldSlug = isset($post->translate($lang)->slug) ? $post->translate($lang)->slug : ''; ?>
        {!! Form::label("{$lang}[slug]", trans('blog::post.form.slug')) !!}

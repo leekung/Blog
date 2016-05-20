@@ -4,6 +4,11 @@
         {!! Form::text("{$lang}[title]", old("$lang.title"), ['class' => 'form-control', 'data-slug' => 'source', 'placeholder' => trans('blog::post.form.title')]) !!}
         {!! $errors->first("$lang.title", '<span class="help-block">:message</span>') !!}
     </div>
+    <div class='form-group{{ $errors->has("$lang.sub_title") ? ' has-error' : '' }}'>
+        {!! Form::label("{$lang}[sub_title]", trans('blog::post.form.sub_title')) !!}
+        {!! Form::text("{$lang}[sub_title]", old("$lang.sub_title"), ['class' => 'form-control', 'placeholder' => trans('blog::post.form.sub_title')]) !!}
+        {!! $errors->first("$lang.sub_title", '<span class="help-block">:message</span>') !!}
+    </div>
     <div class='form-group{{ $errors->has("$lang.slug") ? ' has-error' : '' }}'>
        {!! Form::label("{$lang}[slug]", trans('blog::post.form.slug')) !!}
        {!! Form::text("{$lang}[slug]", old("$lang.slug"), ['class' => 'form-control slug', 'data-slug' => 'target', 'placeholder' => trans('blog::post.form.slug')]) !!}
