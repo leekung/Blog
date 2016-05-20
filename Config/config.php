@@ -40,4 +40,7 @@ return [
     //        }
         ],
     ],
+    'route-prefix' => 'blog',
+    'route-posts' => 'posts',
+    'route-posts-slug' => 'posts/{slug}',
 ];
