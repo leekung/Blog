@@ -6,7 +6,11 @@ use Illuminate\Routing\Router;
 
 $router->group(['prefix' => 'products'], function (Router $router) {
     $router->bind('category', function ($slug) {
-        return app('Modules\Blog\Repositories\CategoryRepository')->findBySlug($slug);
+        $category = app('Modules\Blog\Repositories\CategoryRepository')->findBySlug($slug);
+        if (!$category) {
+           abort(404);
+        }
+        return $category;
     });
 
     $locale = LaravelLocalization::setLocale() ?: App::getLocale();
