@@ -63,6 +63,7 @@ class PostController extends AdminBaseController
     {
         $categories = $this->category->allTranslatedIn(app()->getLocale());
         $statuses = $this->status->lists();
+        $this->assetPipeline->requireJs('ckeditor.js');
 
         return view('blog::admin.posts.create', compact('categories', 'statuses'));
     }
@@ -99,6 +100,7 @@ class PostController extends AdminBaseController
         $thumbnail = $this->file->findFileByZoneForEntity('thumbnail', $post);
         $categories = $this->category->allTranslatedIn(app()->getLocale());
         $statuses = $this->status->lists();
+        $this->assetPipeline->requireJs('ckeditor.js');
 
         return view('blog::admin.posts.edit', compact('post', 'categories', 'thumbnail', 'statuses', 'galleryFiles'));
     }
