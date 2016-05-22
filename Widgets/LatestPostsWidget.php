@@ -35,7 +35,7 @@ class LatestPostsWidget extends BaseWidget
     protected function options()
     {
         return [
-            'width' => '4',
+            'width' => '6',
             'height' => '4',
         ];
     }
