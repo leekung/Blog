@@ -48,7 +48,7 @@
 
                 <div class="box-footer">
                     <input type="submit" name="submit" class="btn btn-primary btn-flat" value="{{ trans('core::core.button.update') }}" />
-                    <input type="submit" name="submit" class="btn btn-success btn-flat" value="{{ trans('core.button.update and continue edit') }}" />
+                    <input type="submit" name="submit" class="btn btn-success btn-flat" value="{{ trans('core::core.button.update and continue edit') }}" />
                     <button class="btn btn-default btn-flat" name="button" type="reset">{{ trans('core::core.button.reset') }}</button>
                     <a class="btn btn-danger pull-right btn-flat" href="{{ URL::route('admin.blog.post.index')}}"><i class="fa fa-times"></i> {{ trans('core::core.button.cancel') }}</a>
                 </div>
