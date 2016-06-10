@@ -62,17 +62,10 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
         return $post;
     }
 
-    public function destroy($model)
-    {
-        event(new PostWasDeleted($model->id, get_class($model)));
-
-        return $model->delete();
-    }
-
     /**
-     * Create a news news
+     * Delete a blog post
      * @param  array $data
-     * @return News
+     * @return Post
      */
     public function destroy($data)
     {

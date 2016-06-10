@@ -5,15 +5,20 @@ namespace Modules\Blog\Events\Handlers;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Modules\Blog\Entities\Post;
 
-class CreateMetaAllLocale
+/**
+ * Class UpdateMetaAllLocale
+ * @package Modules\Blog\Events\Handlers
+ */
+class UpdateMetaAllLocale
 {
     /**
-     * @param PostWasCreated $event
+     * @param PostWasUpdated $event
      */
     public function handle($event)
     {
         $locales = LaravelLocalization::getSupportedLocales();
-        $model = $event->getEntity();
+        $model = Post::find($event->postId);
+
         foreach ($locales as $locale => $language) {
             $model->setLocale($locale);
             if (isset($event->data[$locale]['metable'])) {

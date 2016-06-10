@@ -76,12 +76,12 @@ class PostController extends AdminBaseController
      */
     public function store(CreatePostRequest $request)
     {
-        $this->post->create($request->all());
+        $post = $this->post->create($request->all());
 
         flash(trans('blog::messages.post created'));
         $submit = $request->get('submit');
         if ($submit == trans('core::core.button.update and continue edit')) {
-            return redirect()->route('admin.blog.post.edit', [$this->post->id]);
+            return redirect()->route('admin.blog.post.edit', [$post->id]);
         }
 
 

@@ -4,6 +4,7 @@ use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvi
 use Modules\Blog\Events\Handlers\CreateMetaAllLocale;
 use Modules\Blog\Events\Handlers\DeleteMetaAllLocale;
 use Modules\Blog\Events\Handlers\CreateTagAllLocale;
+use Modules\Blog\Events\Handlers\UpdateMetaAllLocale;
 use Modules\Blog\Events\PostWasCreated;
 use Modules\Blog\Events\PostWasUpdated;
 use Modules\Blog\Events\PostWasDeleted;
@@ -17,7 +18,7 @@ class EventServiceProvider extends ServiceProvider
         ],
         PostWasUpdated::class => [
             CreateTagAllLocale::class,
-            CreateMetaAllLocale::class,
+            UpdateMetaAllLocale::class,
         ],
         PostWasDeleted::class => [
             DeleteMetaAllLocale::class,
