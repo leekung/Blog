@@ -57,9 +57,16 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
 
         $post->tags()->sync(array_get($data, 'tags', []));
 
-        event(new PostWasCreated($post->id, $data));
+        event(new PostWasCreated($post, $data));
 
         return $post;
+    }
+
+    public function destroy($model)
+    {
+        event(new PostWasDeleted($model->id, get_class($model)));
+
+        return $model->delete();
     }
 
     /**
