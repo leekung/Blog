@@ -7,11 +7,11 @@ class PostWasDeleted implements DeletingMedia
     /**
      * @var string
      */
-    private $postClass;
+    public $postClass;
     /**
      * @var int
      */
-    private $postId;
+    public $postId;
 
     public function __construct($postId, $postClass)
     {
