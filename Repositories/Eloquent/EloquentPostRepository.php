@@ -71,7 +71,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
     {
         $destroy = $this->model->destroy($data->id);
         if ($destroy) {
-            event(new PostWasDeleted($data->id));
+            event(new PostWasDeleted($data->id, $data));
         }
 
         return $destroy;
